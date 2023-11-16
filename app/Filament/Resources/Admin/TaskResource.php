@@ -25,17 +25,7 @@ class TaskResource extends Resource
     protected static ?string $navigationGroup = 'Tarefas';
 
     protected static ?string $label = 'Atividade';
-
-//    protected static?string $navigationLabel = 'Andamento';
-
-//    protected static function getNavigationBadge(): ?string
-//    {
-//        $taskGroupDoneId = TaskGroup::query()->whereTitle('Done')?->first()?->id;
-//
-//        return (string) static::getModel()::where('task_group_id', '<>', $taskGroupDoneId)->count();
-//    }
-
-
+    
     public static function form(Form $form): Form
     {
         return $form
