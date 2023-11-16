@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Admin\Task;
+use App\Models\Task;
 use App\Models\TaskGroup;
-use Database\Factories\TaskGroupFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
