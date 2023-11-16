@@ -6,7 +6,7 @@ namespace App\Filament\Resources\Admin;
 
 use App\Filament\Resources\Admin\TaskResource\Pages;
 use App\Filament\Resources\Admin\TaskResource\RelationManagers;
-use App\Models\Admin\Task;
+use App\Models\Task;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -63,10 +63,12 @@ class TaskResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label('Usuário')
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\BadgeColumn::make('taskGroup.title')
+                    ->label('Tarefas')
                     ->colors([
                         'btn' => 'Testing',
                         'primary' => 'Backlog',
@@ -78,16 +80,19 @@ class TaskResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('description')
+                    ->label('Descrição')
                     ->limit(20)
                     ->searchable()
                     ->sortable()
                     ->tooltip(fn(Model $record) => $record->description),
 
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Criado em')
                     ->dateTime('d/m/Y H:i'),
 
             ])
