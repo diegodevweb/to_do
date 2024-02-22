@@ -47,13 +47,22 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->label('Nome'),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->sortable()
+                    ->label('E-mail'),
                 Tables\Columns\IconColumn::make('is_admin')
+                    ->label('Admin')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Criado em')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Atualizado em')
                     ->dateTime(),
             ])
             ->filters([

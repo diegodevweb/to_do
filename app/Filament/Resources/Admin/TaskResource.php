@@ -25,7 +25,7 @@ class TaskResource extends Resource
     protected static ?string $navigationGroup = 'Tarefas';
 
     protected static ?string $label = 'Atividade';
-    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -116,8 +116,8 @@ class TaskResource extends Resource
     {
         return [
             'index' => Pages\ListTasks::route('/'),
-            'create' => Pages\CreateTask::route('/create'),
-            'edit' => Pages\EditTask::route('/{record}/edit'),
+//            'create' => Pages\CreateTask::route('/create'),
+//            'edit' => Pages\EditTask::route('/{record}/edit'),
         ];
     }
 }

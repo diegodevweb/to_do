@@ -14,11 +14,13 @@ class StatsOverview extends BaseWidget
 
         $taskGroupBackLogId = TaskGroup::query()->whereTitle('Backlog')?->first()?->id;
         $taskGroupInProgressId = TaskGroup::query()->whereTitle('In Progress')?->first()?->id;
+        $taskGroupToDoId = TaskGroup::query()->whereTitle('To Do')?->first()?->id;
         $taskGroupTestingId = TaskGroup::query()->whereTitle('Testing')?->first()?->id;
         $taskGroupDoneId = TaskGroup::query()->whereTitle('Done')?->first()?->id;
 
         return [
-            Card::make('A fazer', Task::query()->where('task_group_id', $taskGroupBackLogId)->count()),
+            Card::make('Backlog', Task::query()->where('task_group_id', $taskGroupBackLogId)->count()),
+            Card::make('A fazer', Task::query()->where('task_group_id', $taskGroupToDoId)->count()),
             Card::make('Em Andamento', Task::query()->where('task_group_id', $taskGroupInProgressId)->count()),
             Card::make('Testando', Task::query()->where('task_group_id', $taskGroupTestingId)->count()),
             Card::make('Concluído', Task::query()->where('task_group_id', $taskGroupDoneId)->count()),
